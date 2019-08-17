@@ -84,11 +84,11 @@ function ENT:Initialize()
 	
 	self.Inaccuracy 	= 1
 	
-	self.Inputs = WireLib.CreateSpecialInputs( self, { "Fire",      "Reload",   "Target Pos",   "Target Ent" },
-                                                     { "NORMAL",    "NORMAL",   "VECTOR",       "ENTITY"    } )
+	self.Inputs = WireLib.CreateSpecialInputs( self, { "Fire",      "Reload",   "Target Pos"},
+                                                     { "NORMAL",    "NORMAL",   "VECTOR"} )
                                                      
-	self.Outputs = WireLib.CreateSpecialOutputs( self, 	{ "Ready",	"Entity",	"Shots Left",  "Position",  "Target" },
-														{ "NORMAL",	"ENTITY",	"NORMAL",      "VECTOR",    "ENTITY" } )
+	self.Outputs = WireLib.CreateSpecialOutputs( self, 	{ "Ready",	"Entity",	"Shots Left",  "Position"},
+														{ "NORMAL",	"ENTITY",	"NORMAL",      "VECTOR"} )
                                                         
 	Wire_TriggerOutput(self, "Entity", self)
 	Wire_TriggerOutput(self, "Ready", 1)
@@ -390,8 +390,6 @@ function ENT:TriggerInput( iname , value )
         self:Reload()
     elseif (iname == "Target Pos") then
         Wire_TriggerOutput(self, "Position", value)
-    elseif (iname == "Target Ent") then
-        Wire_TriggerOutput(self, "Target", value)
 	end		
 end
 
