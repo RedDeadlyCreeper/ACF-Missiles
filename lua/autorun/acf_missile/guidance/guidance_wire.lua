@@ -97,12 +97,6 @@ function this:GetNamedWireInputs(missile)
     end
     
     
-    if outputs.Target and outputs.Target.Type == "ENTITY" then
-    
-        names[#names+1] = "Target"
-    
-    end
-    
     
     return names
     
@@ -201,9 +195,6 @@ function this:GetWireTarget()
         
         if isvector(val) and (val.x ~= 0 or val.y ~= 0 or val.z ~= 0) then
             posVec = val
-            break
-        elseif IsEntity(val) and IsValid(val) then 
-            posVec = val:GetPos()
             break
         end
         
